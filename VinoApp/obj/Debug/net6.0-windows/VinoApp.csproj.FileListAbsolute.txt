@@ -17,3 +17,6 @@ C:\Users\DELL\Desktop\VinoApp\VinoApp\obj\Debug\net6.0-windows\VinoApp.genruntim
 C:\Users\DELL\Desktop\VinoApp\VinoApp\obj\Debug\net6.0-windows\ref\VinoApp.dll
 C:\Users\DELL\Desktop\VinoApp\VinoApp\obj\Debug\net6.0-windows\VinoApp.Formularios.Bodegas.ModificarBodegas.resources
 C:\Users\DELL\Desktop\VinoApp\VinoApp\obj\Debug\net6.0-windows\VinoApp.Formularios.Bodegas.VerBodega.resources
+C:\Users\DELL\Desktop\VinoApp\VinoApp\bin\Debug\net6.0-windows\Datos\actualizaciones.json
+C:\Users\DELL\Desktop\VinoApp\VinoApp\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\DELL\Desktop\VinoApp\VinoApp\obj\Debug\net6.0-windows\VinoApp.csproj.CopyComplete

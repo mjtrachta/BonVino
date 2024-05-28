@@ -16,9 +16,24 @@ namespace VinoApp.Endidades
         public string PeriodoActualizacion { get; set; }
         public List<Vino> Vinos { get; set; }
 
-        public Bodega()
+        public Bodega(string nombre, string descripcion, string coordenadasUbicacion, string historia, string periodoActualizacion)
         {
+            Nombre = nombre;
+            Descripcion = descripcion;
+            CoordenadasUbicacion = coordenadasUbicacion;
+            Historia = historia;
+            PeriodoActualizacion = periodoActualizacion;
             Vinos = new List<Vino>();
         }
+
+        public void ActualizarDatos(string coordenadasUbicacion, string historia, string descripcion, string periodoActualizacion, List<Vino> vinosActualizados)
+        {
+            CoordenadasUbicacion = coordenadasUbicacion;
+            Historia = historia;
+            Descripcion = descripcion;
+            PeriodoActualizacion = periodoActualizacion;
+            Vinos = vinosActualizados;
+        }
+    
     }
 }
