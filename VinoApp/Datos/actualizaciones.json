@@ -1,62 +1,50 @@
-[
-  {
-    "Nombre": "Bodega 1",
-    "CoordenadasUbicacion": "123, 456",
-    "Historia": "Nueva historia de la Bodega 1",
-    "Descripcion": "Nueva descripción de la Bodega 1",
-    "PeriodoActualizacion": "2024-06-01",
-    "Vinos": [
-      {
-        "Nombre": "Vino 1",
-        "Aniada": "2020",
-        "ImagenEtiqueta": "nueva_imagen_vino1.jpg",
-        "NotaDeCataBodega": "Nueva nota de cata del Vino 1",
-        "PrecioArs": 300.00
-      },
-      {
-        "Nombre": "Vino 2",
-        "Aniada": "2019",
-        "ImagenEtiqueta": "nueva_imagen_vino2.jpg",
-        "NotaDeCataBodega": "Nueva nota de cata del Vino 2",
-        "PrecioArs": 200.00
-      },
-      {
-        "Nombre": "Vino 20",
-        "Aniada": "2024",
-        "ImagenEtiqueta": "nueva_imagen_vino20.jpg",
-        "NotaDeCataBodega": "Nueva nota de cata del Vino 20",
-        "PrecioArs": 20000000.00
-      }
-    ]
-  },
-  {
-    "Nombre": "Bodega 2",
-    "CoordenadasUbicacion": "789, 012",
-    "Historia": "Nueva historia de la Bodega 2",
-    "Descripcion": "Nueva descripción de la Bodega 2",
-    "PeriodoActualizacion": "2024-06-01",
-    "Vinos": [
-      {
-        "Nombre": "Vino 3",
-        "Aniada": "2018",
-        "ImagenEtiqueta": "nueva_imagen_vino3.jpg",
-        "NotaDeCataBodega": "Nueva nota de cata del Vino 3",
-        "PrecioArs": 350.00
-      },
-      {
-        "Nombre": "Vino 4",
-        "Aniada": "2017",
-        "ImagenEtiqueta": "nueva_imagen_vino4.jpg",
-        "NotaDeCataBodega": "Nueva nota de cata del Vino 4",
-        "PrecioArs": 250.00
-      },
-      {
-        "Nombre": "Vino 40",
-        "Aniada": "2023",
-        "ImagenEtiqueta": "nueva_imagen_vino40.jpg",
-        "NotaDeCataBodega": "Nueva nota de cata del Vino 40",
-        "PrecioArs": 25000000.00
-      }
-    ]
-  }
-]
+{
+  "actualizaciones": [
+    {
+      "bodega": "Bodega Los Andes",
+      "vinos": [
+        {
+          "nombre": "Reserva Malbec",
+          "aniada": "2018",
+          "imagenEtiqueta": "reserva_malbec.jpg",
+          "notaDeCataBodega": "Notas de frutos rojos y especias",
+          "precioArs": 550,
+          "maridaje": [ "Carne Asada" ],
+          "varietal": [ "Malbec" ]
+        },
+        {
+          "nombre": "Nuevo Vino Blanco",
+          "aniada": "2021",
+          "imagenEtiqueta": "nuevo_vino_blanco.jpg",
+          "notaDeCataBodega": "Notas frescas y cÃ­tricas",
+          "precioArs": 480,
+          "maridaje": [ "Pescado", "Queso" ],
+          "varietal": [ "Malbec", "Cabernet Sauvignon" ]
+        }
+      ]
+    },
+    {
+      "bodega": "Bodega La Cava",
+      "vinos": [
+        {
+          "nombre": "Gran Reserva Cabernet",
+          "aniada": "2019",
+          "imagenEtiqueta": "gran_reserva_cabernet.jpg",
+          "notaDeCataBodega": "Aromas a pimiento y chocolate",
+          "precioArs": 800,
+          "maridaje": [ "Pescado" ],
+          "varietal": [ "Cabernet Sauvignon" ]
+        },
+        {
+          "nombre": "Nuevo Vino Rosado",
+          "aniada": "2020",
+          "imagenEtiqueta": "nuevo_vino_rosado.jpg",
+          "notaDeCataBodega": "Fresco y afrutado",
+          "precioArs": 350,
+          "maridaje": [ "Queso" ],
+          "varietal": [ "Malbec", "Cabernet Sauvignon" ]
+        }
+      ]
+    }
+  ]
+}

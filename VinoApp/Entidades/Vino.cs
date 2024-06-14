@@ -14,32 +14,31 @@ namespace VinoApp.Modelos
         public string ImagenEtiqueta { get; set; }
         public string NotaDeCataBodega { get; set; }
         public double PrecioArs { get; set; }
-        public Maridaje Maridaje { get; set; }
-        public Varietal Varietal { get; set; }
+        public List<Maridaje> Maridaje { get; set; }
+
+        public List<Varietal> Varietal { get; set; }
+
         public Bodega Bodega { get; set; } // Referencia a la bodega a la que pertenece este vino
 
         public Vino() { }
 
-        public Vino(string nombre, string aniada, string imagenEtiqueta, string notaDeCataBodega, double precioArs, Maridaje maridaje, Varietal varietal, Bodega bodega)
+        public Vino(string nombre, string aniada, string imagenEtiqueta, string notaDeCataBodega, double precioArs, List<Maridaje> maridaje, List<Varietal> varietal, Bodega bodega)
         {
             Nombre = nombre;
             Aniada = aniada;
             ImagenEtiqueta = imagenEtiqueta;
             NotaDeCataBodega = notaDeCataBodega;
             PrecioArs = precioArs;
-            Maridaje = maridaje;
-            Varietal = varietal;
+            Maridaje = maridaje ?? new  List<Maridaje>();
+            Varietal = varietal ?? new List<Varietal>();
             Bodega = bodega;
         }
 
-        public override bool Equals(object obj)
-        {
-            return obj is Vino vino && Nombre == vino.Nombre;
-        }
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(Nombre);
-        }
+
+
+        
+
+      
     }
 }

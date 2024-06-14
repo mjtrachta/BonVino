@@ -1,3 +1,8 @@
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Windows.Forms;
+using VinoApp.Datos;
 using VinoApp.Endidades;
 using VinoApp.Formularios.Bodegas;
 using VinoApp.Servicios;
@@ -6,36 +11,34 @@ namespace VinoApp
 {
     public partial class MainForm : Form
     {
-        private BodegaServicio _bodegaServicio;
+        private GeneradorDeDatos _generadorDeDatos;
+        private GestorImportadorBodega _gestorImportadorBodega;
 
         public MainForm()
         {
             InitializeComponent();
-            _bodegaServicio = new BodegaServicio();
+            _generadorDeDatos = new GeneradorDeDatos();
+            _gestorImportadorBodega = new GestorImportadorBodega();
             CargarBodegas();
         }
 
         private void CargarBodegas()
         {
-            var bodegas = _bodegaServicio.ObtenerBodegas();
-            // Código para cargar bodegas en un control, como DataGridView
-            // dataGridViewBodegas.DataSource = bodegas; (ejemplo)
+            var bodegas = _generadorDeDatos.ObtenerBodegas();
+            _gestorImportadorBodega.AsignarBodegas(bodegas);
+            // Imprimir el número de bodegas cargadas
+            Debug.WriteLine($"Número de bodegas cargadas: {bodegas.Count}");
         }
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // Lógica para el menú Archivo
         }
 
         private void actualizarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            
-            // Crear una instancia del formulario ModificarBodegas
-            ModificarBodegas modificarBodegasForm = new ModificarBodegas();
-
-            // Mostrar el formulario ModificarBodegas
-            modificarBodegasForm.ShowDialog(); // Utiliza Show() si no quieres que el formulario sea modal
+            PantallaImportadorBodega modificarBodegasForm = new PantallaImportadorBodega(_gestorImportadorBodega);
+            modificarBodegasForm.ShowDialog();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -43,6 +46,9 @@ namespace VinoApp
             this.Close();
         }
 
-        
+        private void bodegasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Lógica para el menú Bodegas
+        }
     }
 }

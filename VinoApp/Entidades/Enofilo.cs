@@ -13,5 +13,22 @@ namespace VinoApp.Modelos
         public string Nombre { get; set; }
         public Usuario Usuario { get; set; }
         public Siguiendo Siguiendo { get; set; }
+        
+
+        //constructor
+        public Enofilo(string apellido, string imagenPerfil, string nombre, Usuario usuario, Siguiendo siguiendo)
+        {
+            Apellido = apellido;
+            ImagenPerfil = imagenPerfil;
+            Nombre = nombre;
+            Usuario = usuario;
+            Siguiendo = siguiendo;
+        }
+
+        public Enofilo() {
+        
+        }
+
+
     }
 }

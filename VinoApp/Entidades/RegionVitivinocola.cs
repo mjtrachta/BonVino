@@ -8,8 +8,13 @@ namespace VinoApp.Modelos
 {
     public class RegionVitivinicola
     {
-        public int IdRegionVitivinicola { get; set; }
         public string Nombre { get; set; }
-        public int IdProvincia { get; set; }
+        public Provincia Provincia { get; set; }
+
+        public RegionVitivinicola(string nombre, Provincia provincia)
+        {
+            Nombre = nombre;
+            Provincia = provincia;
+        }
     }
 }

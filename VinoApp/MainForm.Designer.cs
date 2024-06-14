@@ -33,13 +33,15 @@
             salirToolStripMenuItem = new ToolStripMenuItem();
             bodegasToolStripMenuItem = new ToolStripMenuItem();
             actualizarToolStripMenuItem = new ToolStripMenuItem();
+            vinosToolStripMenuItem = new ToolStripMenuItem();
+            rankingToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, bodegasToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, bodegasToolStripMenuItem, vinosToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 28);
@@ -57,7 +59,7 @@
             // salirToolStripMenuItem
             // 
             salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(224, 26);
+            salirToolStripMenuItem.Size = new Size(121, 26);
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
@@ -67,13 +69,27 @@
             bodegasToolStripMenuItem.Name = "bodegasToolStripMenuItem";
             bodegasToolStripMenuItem.Size = new Size(81, 24);
             bodegasToolStripMenuItem.Text = "Bodegas";
+            bodegasToolStripMenuItem.Click += bodegasToolStripMenuItem_Click;
             // 
             // actualizarToolStripMenuItem
             // 
             actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
-            actualizarToolStripMenuItem.Size = new Size(158, 26);
-            actualizarToolStripMenuItem.Text = "Actualizar";
+            actualizarToolStripMenuItem.Size = new Size(283, 26);
+            actualizarToolStripMenuItem.Text = "Importar Actualizacion Vinos";
             actualizarToolStripMenuItem.Click += actualizarToolStripMenuItem_Click;
+            // 
+            // vinosToolStripMenuItem
+            // 
+            vinosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { rankingToolStripMenuItem });
+            vinosToolStripMenuItem.Name = "vinosToolStripMenuItem";
+            vinosToolStripMenuItem.Size = new Size(59, 24);
+            vinosToolStripMenuItem.Text = "Vinos";
+            // 
+            // rankingToolStripMenuItem
+            // 
+            rankingToolStripMenuItem.Name = "rankingToolStripMenuItem";
+            rankingToolStripMenuItem.Size = new Size(145, 26);
+            rankingToolStripMenuItem.Text = "Ranking";
             // 
             // MainForm
             // 
@@ -97,5 +113,7 @@
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem bodegasToolStripMenuItem;
         private ToolStripMenuItem actualizarToolStripMenuItem;
+        private ToolStripMenuItem vinosToolStripMenuItem;
+        private ToolStripMenuItem rankingToolStripMenuItem;
     }
 }
