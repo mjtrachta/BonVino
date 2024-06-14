@@ -7,6 +7,9 @@
     <Compile Update="Formularios\Bodegas\VerBodega.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularios\Login\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

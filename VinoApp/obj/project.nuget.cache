@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vl5x5c6rViEVG6XUaa4XRSKIji9tYZM7TU2eMqhLAnSRyKVftiks8zDwRlu0rxBZQ1wyoP0pGuijrGCmgRvcqA==",
+  "dgSpecHash": "CxO/qcD6IdLQqwavlrGKuJPpdoYffinHjTEA56uiUDvdvXY0V5g0Vv03Qs9RhL8osz+2yfOM94Mzz9I/8M725A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DELL\\Desktop\\VinoApp\\VinoApp\\VinoApp.csproj",
+  "projectFilePath": "C:\\Users\\User\\source\\repos\\BonVino\\VinoApp\\VinoApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\DELL\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
