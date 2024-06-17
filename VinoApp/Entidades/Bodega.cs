@@ -36,7 +36,7 @@ namespace VinoApp.Endidades
         // Método 4
         public bool EstaParaActualizarNovedadesVino()
         {
-            bool estaParaActualizarNovedadesVino = (DateTime.Now - FechaUltimaActualizacion).TotalDays >= PeriodoActualizacion;
+            bool estaParaActualizarNovedadesVino = ((DateTime.Now - FechaUltimaActualizacion).TotalDays)/30 >= PeriodoActualizacion;
             return estaParaActualizarNovedadesVino;
         }
 

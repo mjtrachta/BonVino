@@ -22,6 +22,7 @@ namespace VinoApp.Modelos
 
         public Vino() { }
 
+        // Metodo new vinos
         public Vino(string nombre, string aniada, string imagenEtiqueta, string notaDeCataBodega, double precioArs, List<Maridaje> maridaje, List<Varietal> varietal, Bodega bodega)
         {
             Nombre = nombre;

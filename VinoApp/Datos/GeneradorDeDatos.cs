@@ -66,15 +66,16 @@ namespace VinoApp.Datos
 
             // Crear Bodegas
             DateTime fechaActual = DateTime.Now;
-            Bodega bodega1 = new Bodega("Bodega Los Andes", "Ubicada en Mendoza", "32°53'S 68°51'W", "Una bodega histórica", 12, fechaActual.AddDays(-15), region1, new List<Vino>());
-            Bodega bodega2 = new Bodega("Bodega La Cava", "Ubicada en San Juan", "31°32'S 68°31'W", "Con tradición familiar", 24, fechaActual.AddDays(-30), region2, new List<Vino>());
-            Bodega bodega3 = new Bodega("Bodega SIN VINOS", "Ubicada en San Juan", "34°33'S 67°30'W", "Con pasas de uvas", 24, fechaActual.AddDays(-1), region2, new List<Vino>());
+            Bodega bodega1 = new Bodega("Bodega Los Andes", "Ubicada en Mendoza", "32°53'S 68°51'W", "Una bodega histórica", 2, fechaActual.AddDays(-62), region1, new List<Vino>());
+            Bodega bodega2 = new Bodega("Bodega La Cava", "Ubicada en San Juan", "31°32'S 68°31'W", "Con tradición familiar", 2, fechaActual.AddDays(-63), region2, new List<Vino>());
+            Bodega bodega3 = new Bodega("Bodega SIN VINOS", "Ubicada en San Juan", "34°33'S 67°30'W", "Con pasas de uvas", 3, fechaActual.AddDays(-1), region2, new List<Vino>());
 
             bodegas = new List<Bodega> { bodega1, bodega2, bodega3 };
 
             // Crear Vinos y asignarlos a bodegas
             Vino vino1 = new Vino("Reserva Malbec", "2018", "reserva_malbec.jpg", "Notas de frutos rojos y especias", 500, new List<Maridaje> { maridaje1 }, new List<Varietal> { varietal1 }, bodega1);
             Vino vino2 = new Vino("Gran Reserva Cabernet", "2019", "gran_reserva_cabernet.jpg", "Aromas a pimiento y chocolate", 750, new List<Maridaje> { maridaje2 }, new List<Varietal> { varietal2 }, bodega1);
+            
             Vino vino3 = new Vino("Rosado", "2020", "rosado.jpg", "Fresco y afrutado", 300, new List<Maridaje> { maridaje3 }, new List<Varietal> { varietal1, varietal2 }, bodega2);
 
             vinos = new List<Vino> { vino1, vino2, vino3 };

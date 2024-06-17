@@ -13,6 +13,7 @@ namespace VinoApp.Formularios.Bodegas
         private Bodega _bodega;
 
 
+
         public InterfazAPIBodega(Bodega bodega)
         {
             InitializeComponent();

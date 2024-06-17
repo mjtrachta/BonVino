@@ -1,13 +1,13 @@
 [
   {
-    "Nombre": "Bodega Los Andes",
+    "Nombre": "Bodega Los Andes", //bodega 1
     "Vinos": [
       {
-        "Nombre": "Reserva Malbec",
+        "Nombre": "Reserva Malbec",//actualizacion
         "Aniada": "2018",
         "ImagenEtiqueta": "reserva_malbec_updated.jpg",
         "NotaDeCataBodega": "Notas de frutos rojos y especias, actualizado",
-        "PrecioArs": 550,
+        "PrecioArs": 1,
         "Maridaje": [
           {
             "Nombre": "Carne Asada",
@@ -26,11 +26,11 @@
         ]
       },
       {
-        "Nombre": "Nuevo Vino Malbec",
+        "Nombre": "Nuevo Vino Malbec", // new
         "Aniada": "2021",
         "ImagenEtiqueta": "nuevo_vino_malbec.jpg",
         "NotaDeCataBodega": "Aromas frescos y frutales",
-        "PrecioArs": 650,
+        "PrecioArs": 10000000000,
         "Maridaje": [
           {
             "Nombre": "Queso",
@@ -50,15 +50,20 @@
       }
     ]
   },
+
+
+///////////////////////////////////////////////////////////////////////////////////
+
+
   {
-    "Nombre": "Bodega La Cava",
+    "Nombre": "Bodega La Cava", //bodega 2
     "Vinos": [
       {
-        "Nombre": "Gran Reserva Cabernet",
+        "Nombre": "Rosado", //actualizacion
         "Aniada": "2019",
         "ImagenEtiqueta": "gran_reserva_cabernet_updated.jpg",
         "NotaDeCataBodega": "Aromas a pimiento y chocolate, actualizado",
-        "PrecioArs": 800,
+        "PrecioArs": 2,
         "Maridaje": [
           {
             "Nombre": "Pescado",
@@ -77,11 +82,11 @@
         ]
       },
       {
-        "Nombre": "Nuevo Vino Rosado",
+        "Nombre": "Nuevo Vino Rosado", //new
         "Aniada": "2021",
         "ImagenEtiqueta": "nuevo_vino_rosado.jpg",
         "NotaDeCataBodega": "Fresco y afrutado",
-        "PrecioArs": 350,
+        "PrecioArs": 2000000,
         "Maridaje": [
           {
             "Nombre": "Ensaladas",
