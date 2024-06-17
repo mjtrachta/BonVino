@@ -35,6 +35,7 @@ namespace VinoApp.Modelos
         }
 
         //Método 12
+
         public bool sosVinoParaActualizar(Vino otroVino)
         {
             return this.Nombre == otroVino.Nombre;

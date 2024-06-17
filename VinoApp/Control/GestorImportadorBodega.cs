@@ -59,13 +59,23 @@ namespace VinoApp.Servicios
         }
 
         //Método 7
-        // debe ser modificado
         public void tomarSeleccionBodega(Bodega bodega)
         {
             ObtenerActualizacionVinoBodega(bodega);
+            
+            obtenerActualizacionVino(bodega);
+        }
+
+        //Método 9
+        // esto deberia estar en InterfazAPIBodega
+        public void obtenerActualizacionVino(Bodega bodega)
+        {
+            // esto deberia estar en ObtenerActualizacionVino() en InterfazAPIBodega
             InterfazAPIBodega verBodegaForm = new InterfazAPIBodega(bodega);
             verBodegaForm.ShowDialog();
         }
+
+
 
         //Método 8
         private void ObtenerActualizacionVinoBodega(Bodega bodega)
@@ -78,6 +88,7 @@ namespace VinoApp.Servicios
                 var actualizacionBodega = actualizaciones.FirstOrDefault(b => b.Nombre == bodega.Nombre);
                 if (actualizacionBodega != null)
                 {
+                    //Esto pisa los datos de vinos en la bodega
                     bodega.Vinos = actualizacionBodega.Vinos;
                     bodega.FechaUltimaActualizacion = DateTime.Now;
                 }
@@ -85,6 +96,7 @@ namespace VinoApp.Servicios
         }
 
         //Método 10
+        // este metodo se usa para evitar que los datos se pisen aca arriba. falta implementarlo
         public void actualizarCaracteristicasVinoExistente(List<Vino> nuevosVinos)
         {
             foreach (var bodega in datosBodegas)
