@@ -4,6 +4,9 @@
     <Compile Update="Boundary\Bodegas\InterfazAPIBodega.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Boundary\Bodegas\InterfazNotificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Boundary\Bodegas\PantallaImportadorBodega.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -37,7 +37,6 @@
             ImagenEtiqueta = new DataGridViewTextBoxColumn();
             Maridaje = new DataGridViewTextBoxColumn();
             Varietal = new DataGridViewTextBoxColumn();
-            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)vinosDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -45,9 +44,9 @@
             // 
             labelNombreBodega.AutoSize = true;
             labelNombreBodega.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            labelNombreBodega.Location = new Point(12, 9);
+            labelNombreBodega.Location = new Point(14, 12);
             labelNombreBodega.Name = "labelNombreBodega";
-            labelNombreBodega.Size = new Size(47, 15);
+            labelNombreBodega.Size = new Size(61, 20);
             labelNombreBodega.TabIndex = 10;
             labelNombreBodega.Text = "Bodega";
             // 
@@ -56,12 +55,11 @@
             vinosDataGridView.BackgroundColor = SystemColors.ControlLight;
             vinosDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             vinosDataGridView.Columns.AddRange(new DataGridViewColumn[] { Nombre, Añada, NotaDeCataBodega, PrecioArs, ImagenEtiqueta, Maridaje, Varietal });
-            vinosDataGridView.Location = new Point(12, 26);
-            vinosDataGridView.Margin = new Padding(3, 2, 3, 2);
+            vinosDataGridView.Location = new Point(14, 35);
             vinosDataGridView.Name = "vinosDataGridView";
             vinosDataGridView.RowHeadersWidth = 51;
             vinosDataGridView.RowTemplate.Height = 29;
-            vinosDataGridView.Size = new Size(1056, 194);
+            vinosDataGridView.Size = new Size(1207, 259);
             vinosDataGridView.TabIndex = 14;
             vinosDataGridView.CellContentClick += vinosDataGridView_CellContentClick;
             // 
@@ -77,6 +75,7 @@
             Añada.HeaderText = "Aniada";
             Añada.MinimumWidth = 80;
             Añada.Name = "Añada";
+            Añada.Width = 125;
             // 
             // NotaDeCataBodega
             // 
@@ -90,6 +89,7 @@
             PrecioArs.HeaderText = "PrecioArs";
             PrecioArs.MinimumWidth = 100;
             PrecioArs.Name = "PrecioArs";
+            PrecioArs.Width = 125;
             // 
             // ImagenEtiqueta
             // 
@@ -112,27 +112,14 @@
             Varietal.Name = "Varietal";
             Varietal.Width = 150;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(12, 244);
-            textBox1.Margin = new Padding(3, 2, 3, 2);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(172, 69);
-            textBox1.TabIndex = 15;
-            // 
-
-            // 
             // InterfazAPIBodega
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MediumPurple;
-            ClientSize = new Size(1080, 357);
-            Controls.Add(textBox1);
+            ClientSize = new Size(1234, 476);
             Controls.Add(vinosDataGridView);
             Controls.Add(labelNombreBodega);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "InterfazAPIBodega";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "InterfazAPI";
@@ -144,7 +131,6 @@
         #endregion
         private Label labelNombreBodega;
         private DataGridView vinosDataGridView;
-        private TextBox textBox1;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Añada;
         private DataGridViewTextBoxColumn NotaDeCataBodega;

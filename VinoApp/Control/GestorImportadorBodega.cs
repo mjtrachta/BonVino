@@ -9,20 +9,21 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
+using VinoApp.Boundary.Bodegas;
 
 namespace VinoApp.Servicios
 {
     public class GestorImportadorBodega
     {
         private List<Bodega> datosBodegas;
-        private PantallaImportadorBodega pantalla;
+        public PantallaImportadorBodega pantalla;
         private string rutaArchivoActualizaciones = @"C:\Users\DELL\Desktop\VinoApp\VinoApp\Datos\actualizaciones.json";
-        private InterfazAPIBodega interfazAPIBodega;
+        public InterfazAPIBodega interfazAPIBodega;
+        public InterfazNotificacion interfazNotificacion;
 
         public GestorImportadorBodega(PantallaImportadorBodega pantalla)
         {
@@ -65,19 +66,24 @@ namespace VinoApp.Servicios
             InterfazAPIBodega instanciaInterfaz = new InterfazAPIBodega(bodega);
             instanciaInterfaz.obtenerActualizacionVino(json);
             actualizarCaracteristicasVinoExistente(json.Vinos);
+            crearVinos(json.Vinos, bodega);
+            InterfazNotificacion instanciaNotificacion = new InterfazNotificacion();
+            instanciaNotificacion.notificarNovedadVinoParaBodega();
+
 
 
             // Mostrar mensaje de confirmación con información de vinos actualizados
-            string mensaje = "Los vinos de la bodega " + bodega.Nombre + " se han actualizado correctamente.\n\n";
-            mensaje += "**Detalles de los vinos actualizados:**\n";
+            string mensaje = "Los vinos de la " + bodega.Nombre + " se han actualizado correctamente.\n\n";
+            mensaje += "**Detalles de los vinos actualizados y creados:**\n";
 
             foreach (var vinoExistente in bodega.Vinos)
             {
                 // Buscar el vino correspondiente en el JSON
-                //var nuevoVino = json.Vinos.FirstOrDefault(v => v.Nombre == vinoExistente.Nombre);
+                var nuevoVino = json.Vinos.FirstOrDefault(v => v.Nombre == vinoExistente.Nombre);
 
                 // Si se encuentra el vino correspondiente
-                if (vinoExistente != null)
+                //if (vinoExistente != null)
+                if (nuevoVino != null)
                 {
                     // Mostrar los atributos actualizados del vino existente
                     string mensajeVino = "\n**Vino:** " + vinoExistente.Nombre + "\n";
@@ -90,7 +96,7 @@ namespace VinoApp.Servicios
                     mensaje += mensajeVino;
                 }
             }
-
+            
             DialogResult resultado = MessageBox.Show(mensaje, "Actualización completada",
                                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -100,142 +106,46 @@ namespace VinoApp.Servicios
 
                 bodega.FechaUltimaActualizacion = DateTime.Now;
             }
-        
-
-
-
         }
 
-
         //Método 8
-
         private Bodega ObtenerActualizacionVinoBodega(Bodega bodega)
         {
-            //if (File.Exists(rutaArchivoActualizaciones))
-           // {
                 string jsonContent = File.ReadAllText(rutaArchivoActualizaciones);
                 var actualizaciones = JsonConvert.DeserializeObject<List<Bodega>>(jsonContent);
 
                  var actualizacionBodega = actualizaciones.FirstOrDefault(b => b.Nombre == bodega.Nombre);
-                 /*if (actualizacionBodega != null)
-                 {
-                     // Actualizar las características de los vinos existentes
-                     actualizarCaracteristicasVinoExistente(actualizacionBodega.Vinos);
 
-                     // Mostrar mensaje de confirmación con información de vinos actualizados
-                     string mensaje = "Los vinos de la bodega " + bodega.Nombre + " se han actualizado correctamente.\n\n";
-                     mensaje += "**Detalles de los vinos actualizados:**\n";
-
-                     foreach (var vinoExistente in bodega.Vinos)
-                     {
-                         // Buscar el vino correspondiente en el JSON
-                         var nuevoVino = actualizacionBodega.Vinos.FirstOrDefault(v => v.Nombre == vinoExistente.Nombre);
-
-                         // Si se encuentra el vino correspondiente
-                         if (vinoExistente != null)
-                         {
-                             // Mostrar los atributos actualizados del vino existente
-                             string mensajeVino = "\n**Vino:** " + vinoExistente.Nombre + "\n";
-                             mensajeVino += "  * **Nombre:** " + vinoExistente.Nombre + "\n";
-                             mensajeVino += "  * **Imagen Etiqueta:** " + vinoExistente.ImagenEtiqueta + "\n";
-                             mensajeVino += "  * **Nota De Cata Bodega:** " + vinoExistente.NotaDeCataBodega + "\n";
-                             mensajeVino += "  * **Precio Ars:** " + vinoExistente.PrecioArs.ToString("C2") + "\n";
-
-                             // Concatenar el mensaje del vino al mensaje principal
-                             mensaje += mensajeVino;
-                         }
-                     }
-
-                     DialogResult resultado = MessageBox.Show(mensaje, "Actualización completada",
-                                                           MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                     // Actualizar estado de la bodega 
-                     if (resultado == DialogResult.OK)
-                     {
-
-                         bodega.FechaUltimaActualizacion = DateTime.Now;
-                     }
-                 }*/
-
-                return actualizacionBodega;
-            //}
-            
+                return actualizacionBodega;  
         }
-
-        private void ObtenerActualizacionVinoBodega2(Bodega bodega)
-        {
-            if (File.Exists(rutaArchivoActualizaciones))
-            {
-                string jsonContent = File.ReadAllText(rutaArchivoActualizaciones);
-                var actualizaciones = JsonConvert.DeserializeObject<List<Bodega>>(jsonContent);
-
-              /*  var actualizacionBodega = actualizaciones.FirstOrDefault(b => b.Nombre == bodega.Nombre);
-                if (actualizacionBodega != null)
-                {
-                    // Actualizar las características de los vinos existentes
-                    actualizarCaracteristicasVinoExistente(actualizacionBodega.Vinos);
-
-                    // Mostrar mensaje de confirmación con información de vinos actualizados
-                    string mensaje = "Los vinos de la bodega " + bodega.Nombre + " se han actualizado correctamente.\n\n";
-                    mensaje += "**Detalles de los vinos actualizados:**\n";
-
-                    foreach (var vinoExistente in bodega.Vinos)
-                    {
-                        // Buscar el vino correspondiente en el JSON
-                        var nuevoVino = actualizacionBodega.Vinos.FirstOrDefault(v => v.Nombre == vinoExistente.Nombre);
-
-                        // Si se encuentra el vino correspondiente
-                        if (vinoExistente != null)
-                        {
-                            // Mostrar los atributos actualizados del vino existente
-                            string mensajeVino = "\n**Vino:** " + vinoExistente.Nombre + "\n";
-                            mensajeVino += "  * **Nombre:** " + vinoExistente.Nombre + "\n";
-                            mensajeVino += "  * **Imagen Etiqueta:** " + vinoExistente.ImagenEtiqueta + "\n";
-                            mensajeVino += "  * **Nota De Cata Bodega:** " + vinoExistente.NotaDeCataBodega + "\n";
-                            mensajeVino += "  * **Precio Ars:** " + vinoExistente.PrecioArs.ToString("C2") + "\n";
-
-                            // Concatenar el mensaje del vino al mensaje principal
-                            mensaje += mensajeVino;
-                        }
-                    }
-
-                    DialogResult resultado = MessageBox.Show(mensaje, "Actualización completada",
-                                                          MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Actualizar estado de la bodega 
-                    if (resultado == DialogResult.OK)
-                    {
-
-                        bodega.FechaUltimaActualizacion = DateTime.Now;
-                    }
-                }*/
-            }
-        }
-
-
-
-
-
-
-
-
-
-
 
         //Método 10
         // este metodo se usa para evitar que los datos se pisen aca arriba. falta implementarlo
 
-
-        public void actualizarCaracteristicasVinoExistente(List<Vino> nuevosVinos)
+        public void actualizarCaracteristicasVinoExistente(List<Vino> actualizacionVinos)
         {
             foreach (var bodega in datosBodegas)
             {
-                bodega.ActualizarDatosVinos(nuevosVinos);
+                bodega.ActualizarDatosVinos(actualizacionVinos);
             }
         }
+
+        // Método para crear nuevos vinos
+        public void crearVinos(List<Vino> actualizacionVinos, Bodega bodega)
+        {
+            foreach (var vinoNuevo in actualizacionVinos)
+            {
+                if (!bodega.Vinos.Any(v => v.Nombre == vinoNuevo.Nombre))
+                {
+                    var nuevoVino = new Vino(vinoNuevo.Nombre, vinoNuevo.Aniada, vinoNuevo.ImagenEtiqueta, vinoNuevo.NotaDeCataBodega, vinoNuevo.PrecioArs, vinoNuevo.Maridaje, vinoNuevo.Varietal, bodega);
+                    bodega.Vinos.Add(nuevoVino);
+                }
+            }
+        }
+
         
 
-       
+
     }
 
 

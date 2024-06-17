@@ -20,3 +20,4 @@ C:\Users\DELL\Desktop\VinoApp\VinoApp\bin\Debug\net6.0-windows\Newtonsoft.Json.d
 C:\Users\DELL\Desktop\VinoApp\VinoApp\obj\Debug\net6.0-windows\VinoApp.csproj.CopyComplete
 C:\Users\DELL\Desktop\VinoApp\VinoApp\obj\Debug\net6.0-windows\VinoApp.Formularios.Bodegas.InterfazAPIBodega.resources
 C:\Users\DELL\Desktop\VinoApp\VinoApp\obj\Debug\net6.0-windows\VinoApp.Formularios.Bodegas.PantallaImportadorBodega.resources
+C:\Users\DELL\Desktop\VinoApp\VinoApp\obj\Debug\net6.0-windows\VinoApp.Boundary.Bodegas.InterfazNotificacion.resources
