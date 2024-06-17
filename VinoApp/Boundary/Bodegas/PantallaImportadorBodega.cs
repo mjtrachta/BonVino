@@ -7,44 +7,53 @@ using System.Windows.Forms;
 using VinoApp.Endidades;
 using VinoApp.Servicios;
 
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using VinoApp.Endidades;
+using VinoApp.Servicios;
+
 namespace VinoApp.Formularios.Bodegas
 {
     public partial class PantallaImportadorBodega : Form
     {
-        // Atributo
-        private GestorImportadorBodega _gestor;
+        private GestorImportadorBodega gestor;
         private List<Bodega> _bodegas;
+        private Bodega bodegas;
+
+
+
+        //Método 2
+        public void habilitarPantalla()
+        {
+            InitializeComponent();
+
+        }
 
         public PantallaImportadorBodega(GestorImportadorBodega gestor)
         {
-            _gestor = gestor;
-            InitializeComponent();
+            habilitarPantalla();
+            this.gestor = gestor;
         }
 
         private void PantallaImportadorBodega_Load(object sender, EventArgs e)
         {
-            _bodegas = _gestor.BuscarBodegasParaActualizar().Where(b => NecesitaActualizacion(b)).ToList();
-            Debug.WriteLine($"Número de bodegas que necesitan actualización: {_bodegas.Count}");
+                              //Uso de Método 1
+            _bodegas = gestor.OpcionImportarActualizacionVinos();
             mostrarBodegasParaActualizar();
         }
 
+        //Método 6
         private void mostrarBodegasParaActualizar()
         {
             listViewBodegas.Items.Clear();
 
             foreach (var bodega in _bodegas)
-            {
-                ListViewItem item = new ListViewItem(bodega.Nombre);
-                item.Tag = bodega;  // Guardar la bodega en la propiedad Tag del ListViewItem
+            {                                               // Revisar ObtenerNombreBodega del gestor
+                ListViewItem item = new ListViewItem(gestor.ObtenerNombreBodega(bodega));
+                item.Tag = bodega;
                 listViewBodegas.Items.Add(item);
             }
-        }
-
-        private bool NecesitaActualizacion(Bodega bodega)
-        {
-            bool necesitaActualizacion = (DateTime.Now - bodega.FechaUltimaActualizacion).TotalDays >= bodega.PeriodoActualizacion;
-            Debug.WriteLine($"La bodega {bodega.Nombre} necesita actualización: {necesitaActualizacion}");
-            return necesitaActualizacion;
         }
 
         private void listViewBodegas_SelectedIndexChanged(object sender, EventArgs e)
@@ -60,6 +69,9 @@ namespace VinoApp.Formularios.Bodegas
             }
         }
 
+
+        //Método 7
+        // debe ser modificado
         private void tomarSeleccionBodega(Bodega bodega)
         {
             InterfazAPIBodega verBodegaForm = new InterfazAPIBodega(bodega);
@@ -67,4 +79,5 @@ namespace VinoApp.Formularios.Bodegas
         }
     }
 }
+
 

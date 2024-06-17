@@ -29,7 +29,26 @@ namespace VinoApp.Endidades
             Region = region;
             Vinos = vinos ?? new List<Vino>();
         }
+
+        
+
+        // Método para verificar si la bodega necesita actualización
+        // Método 4
+        public bool EstaParaActualizarNovedadesVino()
+        {
+            bool estaParaActualizarNovedadesVino = (DateTime.Now - FechaUltimaActualizacion).TotalDays >= PeriodoActualizacion;
+            return estaParaActualizarNovedadesVino;
+        }
+
+        // Método 5
+        //Revisar
+        public string getNombre()
+        {
+            return Nombre;
+        }
+       /* public string getNombre(Bodega bodega)
+        {
+            return Nombre;
+        }*/
     }
-
-
 }

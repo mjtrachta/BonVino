@@ -18,7 +18,7 @@ namespace VinoApp.Datos
 
         public GeneradorDeDatos()
         {
-            // Crear Países, Provincias, Regiones, Tipos de Uva, Varietales, Maridajes, Bodegas y Vinos...
+
 
             // Crear Países
             Pais pais1 = new Pais("Argentina");
@@ -68,6 +68,7 @@ namespace VinoApp.Datos
             DateTime fechaActual = DateTime.Now;
             Bodega bodega1 = new Bodega("Bodega Los Andes", "Ubicada en Mendoza", "32°53'S 68°51'W", "Una bodega histórica", 12, fechaActual.AddDays(-15), region1, new List<Vino>());
             Bodega bodega2 = new Bodega("Bodega La Cava", "Ubicada en San Juan", "31°32'S 68°31'W", "Con tradición familiar", 24, fechaActual.AddDays(-30), region2, new List<Vino>());
+            Bodega bodega3 = new Bodega("Bodega SIN VINOS", "Ubicada en San Juan", "34°33'S 67°30'W", "Con pasas de uvas", 24, fechaActual.AddDays(-1), region2, new List<Vino>());
 
             bodegas = new List<Bodega> { bodega1, bodega2 };
 

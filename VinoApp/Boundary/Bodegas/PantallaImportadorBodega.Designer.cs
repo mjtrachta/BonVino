@@ -31,25 +31,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "PantallaImportadorBodega";
-
-            // Inicializa el ListView
-            this.listViewBodegas = new System.Windows.Forms.ListView();
-            this.listViewBodegas.Location = new System.Drawing.Point(12, 12);
-            this.listViewBodegas.Size = new System.Drawing.Size(300, 400); // Ajusta el tamaño según tu diseño
-            this.listViewBodegas.View = System.Windows.Forms.View.List;
-            this.listViewBodegas.SelectedIndexChanged += new System.EventHandler(this.listViewBodegas_SelectedIndexChanged);
-            this.Controls.Add(this.listViewBodegas);
-
-            // Puedes agregar más configuraciones al ListView según sea necesario
-
-            // Llama al método Load de tu formulario
-            this.Load += new System.EventHandler(this.PantallaImportadorBodega_Load);
+            listViewBodegas = new ListView();
+            label1 = new Label();
+            SuspendLayout();
+            // 
+            // listViewBodegas
+            // 
+            listViewBodegas.Location = new Point(199, 100);
+            listViewBodegas.Name = "listViewBodegas";
+            listViewBodegas.Size = new Size(439, 301);
+            listViewBodegas.TabIndex = 0;
+            listViewBodegas.UseCompatibleStateImageBehavior = false;
+            listViewBodegas.View = View.List;
+            listViewBodegas.SelectedIndexChanged += listViewBodegas_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(350, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(164, 20);
+            label1.TabIndex = 1;
+            label1.Text = "Bodegas por Actualizar";
+            // 
+            // PantallaImportadorBodega
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(label1);
+            Controls.Add(listViewBodegas);
+            Name = "PantallaImportadorBodega";
+            Text = "PantallaImportadorBodega";
+            Load += PantallaImportadorBodega_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
     }
 }

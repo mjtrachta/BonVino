@@ -18,7 +18,8 @@ namespace VinoApp
         {
             InitializeComponent();
             _generadorDeDatos = new GeneradorDeDatos();
-            _gestorImportadorBodega = new GestorImportadorBodega();
+            _gestorImportadorBodega = new GestorImportadorBodega(new PantallaImportadorBodega(_gestorImportadorBodega));
+
             CargarBodegas();
         }
 
@@ -26,8 +27,6 @@ namespace VinoApp
         {
             var bodegas = _generadorDeDatos.ObtenerBodegas();
             _gestorImportadorBodega.AsignarBodegas(bodegas);
-            // Imprimir el número de bodegas cargadas
-            Debug.WriteLine($"Número de bodegas cargadas: {bodegas.Count}");
         }
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
