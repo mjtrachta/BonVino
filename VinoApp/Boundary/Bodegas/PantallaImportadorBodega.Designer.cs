@@ -37,9 +37,11 @@
             // 
             // listViewBodegas
             // 
-            listViewBodegas.Location = new Point(199, 100);
+            listViewBodegas.BackColor = SystemColors.ControlLight;
+            listViewBodegas.Location = new Point(54, 36);
+            listViewBodegas.Margin = new Padding(3, 2, 3, 2);
             listViewBodegas.Name = "listViewBodegas";
-            listViewBodegas.Size = new Size(439, 301);
+            listViewBodegas.Size = new Size(173, 204);
             listViewBodegas.TabIndex = 0;
             listViewBodegas.UseCompatibleStateImageBehavior = false;
             listViewBodegas.View = View.List;
@@ -48,20 +50,26 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(350, 47);
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ControlText;
+            label1.Location = new Point(38, 9);
             label1.Name = "label1";
-            label1.Size = new Size(164, 20);
+            label1.Size = new Size(210, 15);
             label1.TabIndex = 1;
-            label1.Text = "Bodegas por Actualizar";
+            label1.Text = "Bodegas con actualizacion disponible";
             // 
             // PantallaImportadorBodega
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.MediumPurple;
+            ClientSize = new Size(290, 305);
             Controls.Add(label1);
             Controls.Add(listViewBodegas);
+            ForeColor = SystemColors.ControlText;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "PantallaImportadorBodega";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "PantallaImportadorBodega";
             Load += PantallaImportadorBodega_Load;
             ResumeLayout(false);
@@ -73,3 +81,4 @@
         private Label label1;
     }
 }
+

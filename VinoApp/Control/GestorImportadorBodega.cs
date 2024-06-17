@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using VinoApp.Datos;
-using VinoApp.Endidades;
 using VinoApp.Formularios.Bodegas;
 using VinoApp.Modelos;
 using System.Drawing;
@@ -14,7 +13,6 @@ using System.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using VinoApp.Endidades;
 using Newtonsoft.Json;
 
 namespace VinoApp.Servicios
@@ -50,7 +48,7 @@ namespace VinoApp.Servicios
             return datosBodegas.Where(b => b.EstaParaActualizarNovedadesVino()).ToList();
         }
 
-    
+
 
         // Este método debería llamar al método de instancia en la entidad Bodega
         public string ObtenerNombreBodega(Bodega bodega)
@@ -62,22 +60,13 @@ namespace VinoApp.Servicios
         public void tomarSeleccionBodega(Bodega bodega)
         {
             ObtenerActualizacionVinoBodega(bodega);
-            
-            obtenerActualizacionVino(bodega);
+            InterfazAPIBodega instanciaInterfaz = new InterfazAPIBodega(bodega);
+            instanciaInterfaz.obtenerActualizacionVino(bodega);
         }
-
-        //Método 9
-        // esto deberia estar en InterfazAPIBodega
-        public void obtenerActualizacionVino(Bodega bodega)
-        {
-            // esto deberia estar en ObtenerActualizacionVino() en InterfazAPIBodega
-            InterfazAPIBodega verBodegaForm = new InterfazAPIBodega(bodega);
-            verBodegaForm.ShowDialog();
-        }
-
 
 
         //Método 8
+
         private void ObtenerActualizacionVinoBodega(Bodega bodega)
         {
             if (File.Exists(rutaArchivoActualizaciones))
@@ -97,6 +86,8 @@ namespace VinoApp.Servicios
 
         //Método 10
         // este metodo se usa para evitar que los datos se pisen aca arriba. falta implementarlo
+
+        /*
         public void actualizarCaracteristicasVinoExistente(List<Vino> nuevosVinos)
         {
             foreach (var bodega in datosBodegas)
@@ -104,7 +95,34 @@ namespace VinoApp.Servicios
                 bodega.ActualizarDatosVinos(nuevosVinos);
             }
         }
+        */
+        public void actualizarCaracteristicasVinoExistente(List<Vino> nuevosVinos)
+        {
+            foreach (var bodega in datosBodegas)
+            {
+                foreach (var vinoExistente in bodega.Vinos)
+                {
+                    var vinoActualizado = nuevosVinos.FirstOrDefault(v => v.sosVinoParaActualizar(vinoExistente));
+
+                    if (vinoActualizado != null)
+                    {
+                        if (vinoActualizado.PrecioArs != 0)
+                            vinoExistente.setPrecio(vinoActualizado.PrecioArs);
+
+                        if (!string.IsNullOrEmpty(vinoActualizado.NotaDeCataBodega))
+                            vinoExistente.setNotaCata(vinoActualizado.NotaDeCataBodega);
+
+                        if (!string.IsNullOrEmpty(vinoActualizado.ImagenEtiqueta))
+                            vinoExistente.setImagenEtiqueta(vinoActualizado.ImagenEtiqueta);
+                    }
+                }
+            }
+        }
+
+
+
 
     }
 }
+
 

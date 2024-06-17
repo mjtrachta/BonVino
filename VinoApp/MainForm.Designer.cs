@@ -29,77 +29,57 @@
         private void InitializeComponent()
         {
             menuStrip1 = new MenuStrip();
-            archivoToolStripMenuItem = new ToolStripMenuItem();
-            salirToolStripMenuItem = new ToolStripMenuItem();
             bodegasToolStripMenuItem = new ToolStripMenuItem();
             actualizarToolStripMenuItem = new ToolStripMenuItem();
-            vinosToolStripMenuItem = new ToolStripMenuItem();
-            rankingToolStripMenuItem = new ToolStripMenuItem();
+            generarReporteRankingToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { archivoToolStripMenuItem, bodegasToolStripMenuItem, vinosToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { bodegasToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 28);
+            menuStrip1.Padding = new Padding(5, 2, 0, 2);
+            menuStrip1.Size = new Size(542, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
-            // archivoToolStripMenuItem
-            // 
-            archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { salirToolStripMenuItem });
-            archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            archivoToolStripMenuItem.Size = new Size(73, 24);
-            archivoToolStripMenuItem.Text = "Archivo";
-            archivoToolStripMenuItem.Click += archivoToolStripMenuItem_Click;
-            // 
-            // salirToolStripMenuItem
-            // 
-            salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            salirToolStripMenuItem.Size = new Size(121, 26);
-            salirToolStripMenuItem.Text = "Salir";
-            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
-            // 
             // bodegasToolStripMenuItem
             // 
-            bodegasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { actualizarToolStripMenuItem });
+            bodegasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { actualizarToolStripMenuItem, generarReporteRankingToolStripMenuItem });
+            bodegasToolStripMenuItem.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             bodegasToolStripMenuItem.Name = "bodegasToolStripMenuItem";
-            bodegasToolStripMenuItem.Size = new Size(81, 24);
-            bodegasToolStripMenuItem.Text = "Bodegas";
+            bodegasToolStripMenuItem.Size = new Size(69, 20);
+            bodegasToolStripMenuItem.Text = "Opciones";
             bodegasToolStripMenuItem.Click += bodegasToolStripMenuItem_Click;
             // 
             // actualizarToolStripMenuItem
             // 
             actualizarToolStripMenuItem.Name = "actualizarToolStripMenuItem";
-            actualizarToolStripMenuItem.Size = new Size(283, 26);
+            actualizarToolStripMenuItem.Size = new Size(229, 22);
             actualizarToolStripMenuItem.Text = "Importar Actualizacion Vinos";
             actualizarToolStripMenuItem.Click += actualizarToolStripMenuItem_Click;
             // 
-            // vinosToolStripMenuItem
+            // generarReporteRankingToolStripMenuItem
             // 
-            vinosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { rankingToolStripMenuItem });
-            vinosToolStripMenuItem.Name = "vinosToolStripMenuItem";
-            vinosToolStripMenuItem.Size = new Size(59, 24);
-            vinosToolStripMenuItem.Text = "Vinos";
-            // 
-            // rankingToolStripMenuItem
-            // 
-            rankingToolStripMenuItem.Name = "rankingToolStripMenuItem";
-            rankingToolStripMenuItem.Size = new Size(145, 26);
-            rankingToolStripMenuItem.Text = "Ranking";
+            generarReporteRankingToolStripMenuItem.Name = "generarReporteRankingToolStripMenuItem";
+            generarReporteRankingToolStripMenuItem.Size = new Size(229, 22);
+            generarReporteRankingToolStripMenuItem.Text = "Generar Reporte Ranking";
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.MediumPurple;
+            ClientSize = new Size(542, 183);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "BonVino";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -109,11 +89,8 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem archivoToolStripMenuItem;
-        private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem bodegasToolStripMenuItem;
         private ToolStripMenuItem actualizarToolStripMenuItem;
-        private ToolStripMenuItem vinosToolStripMenuItem;
-        private ToolStripMenuItem rankingToolStripMenuItem;
+        private ToolStripMenuItem generarReporteRankingToolStripMenuItem;
     }
 }

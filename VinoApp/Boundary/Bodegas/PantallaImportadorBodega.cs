@@ -38,7 +38,7 @@ namespace VinoApp.Formularios.Bodegas
 
         private void PantallaImportadorBodega_Load(object sender, EventArgs e)
         {
-                              //Uso de Método 1
+            //Uso de Método 1
             _bodegas = gestor.OpcionImportarActualizacionVinos();
             mostrarBodegasParaActualizar();
         }
@@ -64,7 +64,7 @@ namespace VinoApp.Formularios.Bodegas
                 Bodega bodegaSeleccionada = selectedItem.Tag as Bodega;
                 if (bodegaSeleccionada != null)
                 {
-                           //Uso Método 7
+                    //Uso Método 7
                     gestor.tomarSeleccionBodega(bodegaSeleccionada);
                 }
             }
@@ -72,5 +72,4 @@ namespace VinoApp.Formularios.Bodegas
 
     }
 }
-
 
