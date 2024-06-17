@@ -17,10 +17,7 @@ namespace VinoApp.Formularios.Bodegas
         {
             InitializeComponent();
             _bodega = bodega;
-            //CargarDatosBodega();
             CargarVinos();
-            //CargarDatosBodegaJson();
-            CargarVinosJson();
         }
 
 
@@ -36,25 +33,25 @@ namespace VinoApp.Formularios.Bodegas
             vinosDataGridView.Columns.Add("ImagenEtiqueta", "ImagenEtiqueta");
             vinosDataGridView.Columns.Add("NotaDeCataBodega", "NotaDeCataBodega");
             vinosDataGridView.Columns.Add("PrecioArs", "Precio (ARS)");
+            vinosDataGridView.Columns.Add("Maridaje", "Maridaje");
+            vinosDataGridView.Columns.Add("Varietal", "Varietal");
+            vinosDataGridView.Columns.Add("Bodega", "Bodega");
 
             // Agregar los vinos de la bodega al DataGridView
             foreach (var vino in _bodega.Vinos)
             {
-                vinosDataGridView.Rows.Add(vino.Nombre, vino.Aniada, vino.ImagenEtiqueta, vino.NotaDeCataBodega, vino.PrecioArs);
+                vinosDataGridView.Rows.Add(vino.Nombre, vino.Aniada, vino.ImagenEtiqueta, vino.NotaDeCataBodega, vino.PrecioArs, vino.Maridaje, vino.Varietal, vino.Bodega);
             }
-        }
-
-
-
-        private void CargarVinosJson()
-        {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
 
-        }
+
+
+
+
+
+
     }
 }
 

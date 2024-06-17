@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using VinoApp.Endidades;
+using Newtonsoft.Json;
 
 namespace VinoApp.Servicios
 {
@@ -22,6 +23,8 @@ namespace VinoApp.Servicios
     {
         private List<Bodega> datosBodegas;
         private PantallaImportadorBodega pantalla;
+        private string rutaArchivoActualizaciones = @"C:\Users\DELL\Desktop\VinoApp\VinoApp\Datos\actualizaciones.json";
+        private InterfazAPIBodega interfazAPIBodega;
 
         public GestorImportadorBodega(PantallaImportadorBodega pantalla)
         {
@@ -54,7 +57,42 @@ namespace VinoApp.Servicios
         {
             return bodega.getNombre();
         }
-   
+
+        //Método 7
+        // debe ser modificado
+        public void tomarSeleccionBodega(Bodega bodega)
+        {
+            ObtenerActualizacionVinoBodega(bodega);
+            InterfazAPIBodega verBodegaForm = new InterfazAPIBodega(bodega);
+            verBodegaForm.ShowDialog();
+        }
+
+        //Método 8
+        private void ObtenerActualizacionVinoBodega(Bodega bodega)
+        {
+            if (File.Exists(rutaArchivoActualizaciones))
+            {
+                string jsonContent = File.ReadAllText(rutaArchivoActualizaciones);
+                var actualizaciones = JsonConvert.DeserializeObject<List<Bodega>>(jsonContent);
+
+                var actualizacionBodega = actualizaciones.FirstOrDefault(b => b.Nombre == bodega.Nombre);
+                if (actualizacionBodega != null)
+                {
+                    bodega.Vinos = actualizacionBodega.Vinos;
+                    bodega.FechaUltimaActualizacion = DateTime.Now;
+                }
+            }
+        }
+
+        //Método 10
+        public void actualizarCaracteristicasVinoExistente(List<Vino> nuevosVinos)
+        {
+            foreach (var bodega in datosBodegas)
+            {
+                bodega.ActualizarDatosVinos(nuevosVinos);
+            }
+        }
+
     }
 }
 

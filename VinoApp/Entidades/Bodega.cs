@@ -46,9 +46,30 @@ namespace VinoApp.Endidades
         {
             return Nombre;
         }
-       /* public string getNombre(Bodega bodega)
+        /* public string getNombre(Bodega bodega)
+         {
+             return Nombre;
+         }*/
+
+
+        //Método 11
+        public void ActualizarDatosVinos(List<Vino> nuevosVinos)
         {
-            return Nombre;
-        }*/
+            foreach (var nuevoVino in nuevosVinos)
+            {
+                var vinoExistente = this.Vinos.FirstOrDefault(v => v.sosVinoParaActualizar(nuevoVino));
+                if (vinoExistente != null)
+                {
+                    if (nuevoVino.PrecioArs != 0)
+                        vinoExistente.setPrecio(nuevoVino.PrecioArs);
+
+                    if (!string.IsNullOrEmpty(nuevoVino.NotaDeCataBodega))
+                        vinoExistente.setNotaCata(nuevoVino.NotaDeCataBodega);
+
+                    if (!string.IsNullOrEmpty(nuevoVino.ImagenEtiqueta))
+                        vinoExistente.setImagenEtiqueta(nuevoVino.ImagenEtiqueta);
+                }
+            }
+        }
     }
 }

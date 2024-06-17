@@ -34,11 +34,36 @@ namespace VinoApp.Modelos
             Bodega = bodega;
         }
 
+        //Método 12
+        public bool sosVinoParaActualizar(Vino otroVino)
+        {
+            return this.Nombre == otroVino.Nombre;
+        }
 
+        //Método 13
+        public void setPrecio(double precio)
+        {
+            this.PrecioArs = precio;
+        }
 
+        //Método 14
+        public void setNotaCata(string notaCata)
+        {
+            this.NotaDeCataBodega = notaCata;
+        }
 
-        
-
-      
+        //Método 15
+        public void setImagenEtiqueta(string imagen)
+        {
+            this.ImagenEtiqueta = imagen;
+        }
     }
+
+
+
+
+
+
+
 }
+

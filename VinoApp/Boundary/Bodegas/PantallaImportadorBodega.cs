@@ -19,7 +19,7 @@ namespace VinoApp.Formularios.Bodegas
     {
         private GestorImportadorBodega gestor;
         private List<Bodega> _bodegas;
-        private Bodega bodegas;
+        private Bodega bodegaSeleccionada;
 
 
 
@@ -64,19 +64,12 @@ namespace VinoApp.Formularios.Bodegas
                 Bodega bodegaSeleccionada = selectedItem.Tag as Bodega;
                 if (bodegaSeleccionada != null)
                 {
-                    tomarSeleccionBodega(bodegaSeleccionada);
+                           //Uso Método 7
+                    gestor.tomarSeleccionBodega(bodegaSeleccionada);
                 }
             }
         }
 
-
-        //Método 7
-        // debe ser modificado
-        private void tomarSeleccionBodega(Bodega bodega)
-        {
-            InterfazAPIBodega verBodegaForm = new InterfazAPIBodega(bodega);
-            verBodegaForm.ShowDialog();
-        }
     }
 }
 
