@@ -32,42 +32,40 @@
         private void InitializeComponent()
         {
             listViewBodegas = new ListView();
-            label1 = new Label();
+            labelBodegasConActDisponible = new Label();
             SuspendLayout();
             // 
             // listViewBodegas
             // 
             listViewBodegas.BackColor = SystemColors.ControlLight;
-            listViewBodegas.Location = new Point(54, 36);
-            listViewBodegas.Margin = new Padding(3, 2, 3, 2);
+            listViewBodegas.Location = new Point(62, 48);
             listViewBodegas.Name = "listViewBodegas";
-            listViewBodegas.Size = new Size(173, 204);
+            listViewBodegas.Size = new Size(197, 271);
             listViewBodegas.TabIndex = 0;
             listViewBodegas.UseCompatibleStateImageBehavior = false;
             listViewBodegas.View = View.List;
             listViewBodegas.SelectedIndexChanged += listViewBodegas_SelectedIndexChanged;
             // 
-            // label1
+            // labelBodegasConActDisponible
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(38, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(210, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Bodegas con actualizacion disponible";
+            labelBodegasConActDisponible.AutoSize = true;
+            labelBodegasConActDisponible.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            labelBodegasConActDisponible.ForeColor = SystemColors.ControlText;
+            labelBodegasConActDisponible.Location = new Point(43, 12);
+            labelBodegasConActDisponible.Name = "labelBodegasConActDisponible";
+            labelBodegasConActDisponible.Size = new Size(268, 20);
+            labelBodegasConActDisponible.TabIndex = 1;
+            labelBodegasConActDisponible.Text = "Bodegas con actualizacion disponible";
             // 
             // PantallaImportadorBodega
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MediumPurple;
-            ClientSize = new Size(290, 305);
-            Controls.Add(label1);
+            ClientSize = new Size(331, 407);
+            Controls.Add(labelBodegasConActDisponible);
             Controls.Add(listViewBodegas);
             ForeColor = SystemColors.ControlText;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "PantallaImportadorBodega";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PantallaImportadorBodega";
@@ -78,7 +76,7 @@
 
         #endregion
 
-        private Label label1;
+        private Label labelBodegasConActDisponible;
     }
 }
 

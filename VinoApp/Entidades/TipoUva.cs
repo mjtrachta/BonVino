@@ -17,11 +17,18 @@ namespace VinoApp.Modelos
             Varietales = new List<Varietal>();
         }
 
+ 
+
         public TipoUva(string nombre, string descripcion)
         {
             Nombre = nombre;
             Descripcion = descripcion;
             Varietales = new List<Varietal>();
+        }
+
+        public bool sosTipoUva(TipoUva tipoUva)
+        {
+            return this.Nombre == tipoUva.Nombre;
         }
     }
 }

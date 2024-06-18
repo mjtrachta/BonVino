@@ -6,12 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using VinoApp.Endidades;
 using VinoApp.Servicios;
-
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using VinoApp.Endidades;
-using VinoApp.Servicios;
+using VinoApp.Modelos;
 
 namespace VinoApp.Formularios.Bodegas
 {
@@ -49,8 +44,8 @@ namespace VinoApp.Formularios.Bodegas
             listViewBodegas.Items.Clear();
 
             foreach (var bodega in _bodegas)
-            {                                               // Revisar ObtenerNombreBodega del gestor
-                ListViewItem item = new ListViewItem(gestor.ObtenerNombreBodega(bodega));
+            {
+                ListViewItem item = new ListViewItem(bodega.getNombre());
                 item.Tag = bodega;
                 listViewBodegas.Items.Add(item);
             }
@@ -67,6 +62,43 @@ namespace VinoApp.Formularios.Bodegas
                     //Uso Método 7
                     gestor.tomarSeleccionBodega(bodegaSeleccionada);
                 }
+            }
+        }
+
+
+        //Método 24 (mostrar resumen vinos importados)
+        public void mostrarResumenVinosImportados(Bodega bodega, List<Vino> vinosActualizados)
+        {
+            string mensaje = "Los vinos de la " + bodega.Nombre + " se han actualizado correctamente.\n\n";
+            mensaje += "**Detalles de los vinos actualizados y creados:**\n";
+
+            foreach (var vinoExistente in bodega.Vinos)
+            {
+                // Buscar el vino correspondiente en el JSON
+                var nuevoVino = vinosActualizados.FirstOrDefault(v => v.Nombre == vinoExistente.Nombre);
+
+                // Si se encuentra el vino correspondiente
+                if (nuevoVino != null)
+                {
+                    // Mostrar los atributos actualizados del vino existente
+                    string mensajeVino = "\n**Vino:** " + vinoExistente.Nombre + "\n";
+                    mensajeVino += "  * **Nombre:** " + vinoExistente.Nombre + "\n";
+                    mensajeVino += "  * **Imagen Etiqueta:** " + vinoExistente.ImagenEtiqueta + "\n";
+                    mensajeVino += "  * **Nota De Cata Bodega:** " + vinoExistente.NotaDeCataBodega + "\n";
+                    mensajeVino += "  * **Precio Ars:** " + vinoExistente.PrecioArs.ToString("C2") + "\n";
+
+                    // Concatenar el mensaje del vino al mensaje principal
+                    mensaje += mensajeVino;
+                }
+            }
+
+            DialogResult resultado = MessageBox.Show(mensaje, "Actualización completada",
+                                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Actualizar estado de la bodega
+            if (resultado == DialogResult.OK)
+            {
+                bodega.FechaUltimaActualizacion = DateTime.Now;
             }
         }
 

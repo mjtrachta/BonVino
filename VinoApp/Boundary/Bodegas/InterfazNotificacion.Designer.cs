@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            labelNotificacion = new Label();
             SuspendLayout();
             // 
-            // label1
+            // labelNotificacion
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(28, 71);
-            label1.Name = "label1";
-            label1.Size = new Size(554, 28);
-            label1.TabIndex = 0;
-            label1.Text = "Se ha notificado a los enofilos las actualizaciones realizadas!";
+            labelNotificacion.AutoSize = true;
+            labelNotificacion.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            labelNotificacion.Location = new Point(28, 71);
+            labelNotificacion.Name = "labelNotificacion";
+            labelNotificacion.Size = new Size(554, 28);
+            labelNotificacion.TabIndex = 0;
+            labelNotificacion.Text = "Se ha notificado a los enofilos las actualizaciones realizadas!";
             // 
             // InterfazNotificacion
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(599, 160);
-            Controls.Add(label1);
+            ClientSize = new Size(599, 179);
+            Controls.Add(labelNotificacion);
             Name = "InterfazNotificacion";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "InterfazNotificacion";
             ResumeLayout(false);
             PerformLayout();
@@ -55,6 +56,6 @@
 
         #endregion
 
-        private Label label1;
+        private Label labelNotificacion;
     }
 }

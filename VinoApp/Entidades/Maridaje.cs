@@ -10,5 +10,10 @@ namespace VinoApp.Modelos
     {
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
+
+        public bool sosMaridaje(Maridaje maridaje)
+        {
+            return this.Nombre == maridaje.Nombre;
+        }
     }
 }

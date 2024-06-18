@@ -59,6 +59,15 @@ namespace VinoApp.Modelos
         {
             this.ImagenEtiqueta = imagen;
         }
+
+        public void crearVarietal(string descripcion, double porcentajeComposicion, TipoUva tipoUva)
+        {
+            // Crear un nuevo objeto Varietal
+            var nuevoVarietal = new Varietal(descripcion, porcentajeComposicion, tipoUva);
+
+            // Agregar el nuevo Varietal a la lista de Varietales
+            Varietal.Add(nuevoVarietal);
+        }
     }
 
 

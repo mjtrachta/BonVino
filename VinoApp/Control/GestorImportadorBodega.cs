@@ -31,10 +31,14 @@ namespace VinoApp.Servicios
             datosBodegas = new List<Bodega>();
         }
 
+
+        ///////////////////////////////////////////////////////
         public void AsignarBodegas(List<Bodega> bodegas)
         {
             datosBodegas = bodegas;
         }
+        ///////////////////////////////////////////////////////
+        
 
         //// Método 1
         public List<Bodega> OpcionImportarActualizacionVinos()
@@ -42,70 +46,31 @@ namespace VinoApp.Servicios
             return BuscarBodegasParaActualizar();
         }
 
-        // Método para obtener todas las bodegas que necesitan actualización
-        // Método 3
+        // Método 3 (obtener todas las bodegas que necesitan actualización)
         public List<Bodega> BuscarBodegasParaActualizar()
         {
             return datosBodegas.Where(b => b.EstaParaActualizarNovedadesVino()).ToList();
         }
 
-
-
-        // Este método debería llamar al método de instancia en la entidad Bodega
-        public string ObtenerNombreBodega(Bodega bodega)
-        {
-            return bodega.getNombre();
-        }
-
         //Método 7
         public void tomarSeleccionBodega(Bodega bodega)
         {
+                      // Uso Método 8
             var json = ObtenerActualizacionVinoBodega(bodega);
-
 
             InterfazAPIBodega instanciaInterfaz = new InterfazAPIBodega(bodega);
             instanciaInterfaz.obtenerActualizacionVino(json);
+
             actualizarCaracteristicasVinoExistente(json.Vinos);
             crearVinos(json.Vinos, bodega);
+
+
+            // Mostrar resumen de los vinos actualizados y creados
+            pantalla.mostrarResumenVinosImportados(bodega, json.Vinos);
+
+
             InterfazNotificacion instanciaNotificacion = new InterfazNotificacion();
             instanciaNotificacion.notificarNovedadVinoParaBodega();
-
-
-
-            // Mostrar mensaje de confirmación con información de vinos actualizados
-            string mensaje = "Los vinos de la " + bodega.Nombre + " se han actualizado correctamente.\n\n";
-            mensaje += "**Detalles de los vinos actualizados y creados:**\n";
-
-            foreach (var vinoExistente in bodega.Vinos)
-            {
-                // Buscar el vino correspondiente en el JSON
-                var nuevoVino = json.Vinos.FirstOrDefault(v => v.Nombre == vinoExistente.Nombre);
-
-                // Si se encuentra el vino correspondiente
-                //if (vinoExistente != null)
-                if (nuevoVino != null)
-                {
-                    // Mostrar los atributos actualizados del vino existente
-                    string mensajeVino = "\n**Vino:** " + vinoExistente.Nombre + "\n";
-                    mensajeVino += "  * **Nombre:** " + vinoExistente.Nombre + "\n";
-                    mensajeVino += "  * **Imagen Etiqueta:** " + vinoExistente.ImagenEtiqueta + "\n";
-                    mensajeVino += "  * **Nota De Cata Bodega:** " + vinoExistente.NotaDeCataBodega + "\n";
-                    mensajeVino += "  * **Precio Ars:** " + vinoExistente.PrecioArs.ToString("C2") + "\n";
-
-                    // Concatenar el mensaje del vino al mensaje principal
-                    mensaje += mensajeVino;
-                }
-            }
-            
-            DialogResult resultado = MessageBox.Show(mensaje, "Actualización completada",
-                                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            // Actualizar estado de la bodega 
-            if (resultado == DialogResult.OK)
-            {
-
-                bodega.FechaUltimaActualizacion = DateTime.Now;
-            }
         }
 
         //Método 8
@@ -119,9 +84,7 @@ namespace VinoApp.Servicios
                 return actualizacionBodega;  
         }
 
-        //Método 10
-        // este metodo se usa para evitar que los datos se pisen aca arriba. falta implementarlo
-
+        //Método 10(para actualizar vinos)
         public void actualizarCaracteristicasVinoExistente(List<Vino> actualizacionVinos)
         {
             foreach (var bodega in datosBodegas)
@@ -130,7 +93,40 @@ namespace VinoApp.Servicios
             }
         }
 
-        // Método para crear nuevos vinos
+        // Método 16 (verificar si existe maridaje)
+        public bool buscaMaridaje(Maridaje maridaje)
+        {
+            foreach (var bodega in datosBodegas)
+            {
+                foreach (var vino in bodega.Vinos)
+                {
+                    if (vino.Maridaje.Any(m => m.sosMaridaje(maridaje)))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+
+        // Método 18 (verificar si existe tipo de uva)
+        public bool buscaTipoUva(TipoUva tipoUva)
+        {
+            foreach (var bodega in datosBodegas)
+            {
+                foreach (var vino in bodega.Vinos)
+                {
+                    if (vino.Varietal.Any(v => v.TipoUva.sosTipoUva(tipoUva)))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        // Método 20 (para crear nuevos vinos)
         public void crearVinos(List<Vino> actualizacionVinos, Bodega bodega)
         {
             foreach (var vinoNuevo in actualizacionVinos)
@@ -142,10 +138,7 @@ namespace VinoApp.Servicios
                 }
             }
         }
-
-        
-
-
+       
     }
 
 

@@ -12,6 +12,7 @@ namespace VinoApp.Modelos
         public double PorcentajeComposicion { get; set; }
         public TipoUva TipoUva { get; set; }
 
+        // Método new de Varietal
         public Varietal(string descripcion, double porcentajeComposicion, TipoUva tipoUva)
         {
             Descripcion = descripcion;
